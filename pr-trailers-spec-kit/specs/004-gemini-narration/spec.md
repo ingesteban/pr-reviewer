@@ -1,6 +1,6 @@
 # Spec · 004 — Gemini narration (vision)
 
-**Estado:** Borrador · **Origin:** hackathon plan · **Priority:** High · **Depends:** 003
+**Estado:** Aprobada · **Origin:** hackathon plan · **Priority:** High · **Depends:** 003
 **Budget:** 45 min (2:15–3:00)
 
 ## Why
@@ -20,7 +20,7 @@ Screenshots show *that* something changed; the trailer needs to say *what* chang
 - **FR-6.** The prompt SHALL instruct Gemini to only report risks visible in the images, and not to invent features.
 
 ## Acceptance criteria
-- [ ] For PR #1, `script.json` has `source: "gemini"`, at least 2 scenes, and a risk that mentions the mobile overflow.
+- [ ] For PR #1, `script.json` has `source: "gemini"` and records which `model` produced it, at least 2 scenes, and a risk that mentions the mobile overflow.
 - [ ] With `GEMINI_API_KEY` unset, the stage still writes a valid `script.json` with `source: "fallback"`.
 - [ ] The stage completes in under 20 s on PR #1.
 
@@ -30,5 +30,5 @@ Voice-over audio (stretch goal), multi-language output.
 ## Clarifications (resolved)
 - ✅ Gemini (vision) over Claude, to compete for the Gemini prize (critical round).
 - ✅ Structured JSON output; the render stage never parses free text.
-- [NEEDS CLARIFICATION] Exact model id (`GEMINI_MODEL`), chosen in pre-flight: a fast vision-capable Gemini model.
-- [NEEDS CLARIFICATION] Voice-over with Gemini TTS: stretch goal, only if time remains after 006.
+- ✅ Model: `GEMINI_MODEL=gemini-4-hydrogen` (Gemini 4 Hydrogen, announced 2026-11-12: Google's newest fast model, ~2.5× faster than 3.8 Flash), thinking level low/medium for demo latency. If the call fails (unknown model ID, no image input, invalid JSON), retry once with `GEMINI_FALLBACK_MODEL=gemini-3.8-flash`, then use the template fallback. Both overridable in `.env` (decided 2026-11-13).
+- ✅ No voice-over: captions only (decided 2026-11-13).

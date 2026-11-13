@@ -11,13 +11,14 @@
 3. Build a multimodal request: a text block (role, PR metadata, diff, box coordinates per image, rules), then for each capture the labeled `BEFORE <id>` and `AFTER <id>` images as `inlineData` (base64 PNG).
 4. Call `ai.models.generateContent({ model: GEMINI_MODEL, contents, config: { responseMimeType: "application/json", responseSchema } })` with a 30 s `AbortController` timeout. *(Verify the SDK call shape against the @google/genai README during the build.)*
 5. Parse, validate with zod, clamp text lengths, and attach `source: "gemini"`.
-6. On any failure → `fallbackScript(context, changes)` with `source: "fallback"`.
+6. Model chain: try `GEMINI_MODEL` (default `gemini-4-hydrogen`, thinking level low); on any failure log a warning and retry once with `GEMINI_FALLBACK_MODEL` (default `gemini-3.8-flash`); if that also fails → `fallbackScript(context, changes)` with `source: "fallback"`. Record the model used in `script.json` (`model` field).
 
 ## Contracts
 `script.json`:
 ```ts
 {
   source: "gemini" | "fallback";
+  model?: string;           // model that produced the script, e.g. "gemini-4-hydrogen"
   title: string;            // ≤ 8 words, e.g. "Pricing page gets a glow-up"
   summary: string;          // ≤ 20 words
   verdict: "looks-good" | "needs-a-look";

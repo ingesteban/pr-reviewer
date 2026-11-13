@@ -1,6 +1,6 @@
 # Spec · 001 — Demo app and demo PR
 
-**Estado:** Aprobada · **Origin:** hackathon plan · **Priority:** High · **Depends:** —
+**Status:** Approve · **Origin:** hackathon plan · **Priority:** High · **Depends:** —
 **Budget:** 30 min (0:00–0:30)
 
 ## Why
@@ -29,4 +29,4 @@ Any real product features, routing libraries, frameworks beyond Vite.
 ## Clarifications (resolved)
 - ✅ Vite multi-page with vanilla HTML/CSS: fastest to build, no framework.
 - ✅ The regression is deliberate and visible on mobile only. It's the demo's "aha" moment.
-- [NEEDS CLARIFICATION] Brand/theme of the fake product (for example "Nimbus — cloud notes"). Any name works.
+- ✅ Fictional product: **Thinkmoss** (notes app). Renamed from "Nimbus", an existing product (2026-11-13).

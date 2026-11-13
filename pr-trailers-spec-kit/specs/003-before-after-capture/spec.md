@@ -1,6 +1,6 @@
 # Spec · 003 — Before/after capture and visual diff
 
-**Estado:** Borrador · **Origin:** hackathon plan · **Priority:** High · **Depends:** 002
+**Estado:** Aprobada · **Origin:** hackathon plan · **Priority:** High · **Depends:** 002
 **Budget:** 75 min (1:00–2:15) — the riskiest feature; start it early.
 
 ## Why
@@ -32,4 +32,4 @@ Video screen recording of interactions (stretch goal), authenticated pages, non-
 ## Clarifications (resolved)
 - ✅ Static full-page screenshots, not recordings: deterministic and fast. Motion comes from the HyperFrames animation instead.
 - ✅ Pixel diff (pixelmatch), not visual AI, decides *where* things changed. Gemini explains *what* changed.
-- [NEEDS CLARIFICATION] Whether to also capture an interaction state (for example after clicking the "Annual" toggle). Proposed: an optional `actions` field per route in the config, as a stretch goal.
+- ✅ Capture the page as it loads only. No interaction states (e.g. the "Annual" toggle); the badge, CTA and mobile bug are visible on load (decided 2026-11-13).

@@ -5,6 +5,7 @@
 ## T1 — Assets
 **Prompt:**
 > Copy `.trailer/1/trailer.mp4` and `.trailer/1/poster.png` to `video/submission/assets/`. Take a 1920×1080 screenshot of the PR #1 conversation showing the PR Trailers comment (Playwright or manual) → `assets/pr-comment.png`.
+> **Manual (human, ~1 min, before the screenshot):** drag `.trailer/1/trailer.mp4` into a new comment on PR #1 in the GitHub web UI so it shows an inline video player (see 006 clarifications).
 
 ## T2 — Submission composition [depends T1]
 **Files:** `video/submission/{index.html,styles.css}`

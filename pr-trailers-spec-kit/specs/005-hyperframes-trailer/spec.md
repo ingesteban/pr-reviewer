@@ -31,4 +31,4 @@ Audio and voice-over, music (stretch goal), multiple templates or themes.
 ## Clarifications (resolved)
 - ✅ One template, data-driven. The template is the place to spend design time; the data comes from earlier stages.
 - ✅ GIF preview because GitHub comments render GIFs inline, while an MP4 posted through the API only appears as a link (see 006).
-- [NEEDS CLARIFICATION] Exact HyperFrames CLI commands and composition attributes. Confirm them in pre-flight (`npx hyperframes --help`, repo README) and use the HyperFrames agent skill in Claude Code to write the composition.
+- ✅ HyperFrames CLI (Node ≥ 22 + FFmpeg): `npx hyperframes init <dir>`, `lint`, `validate`, `preview`, `render --quality draft` (iterate) / `render --quality high --output <file>.mp4` (deliver). Compositions use `data-composition-id`, and clips use `data-start`, `data-duration`, `data-track-index`; animations are a paused GSAP timeline registered in `window.__timelines[<id>]`. Per-render data can be passed with `--variables` (declared via `data-composition-variables`). Run `npx hyperframes doctor` in pre-flight.

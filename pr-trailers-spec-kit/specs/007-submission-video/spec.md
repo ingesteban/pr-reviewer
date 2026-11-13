@@ -19,7 +19,7 @@ The *Best Demo Video Using HyperFrames* prize is judged on the project's demo vi
 - **FR-5.** The video length SHALL respect the hackathon's limit.
 
 ## Acceptance criteria
-- [ ] `video/submission/out.mp4` rendered with HyperFrames, 60–120 s (or within the official limit).
+- [ ] `video/submission/out.mp4` rendered with HyperFrames, 60–120 s (max 2 min).
 - [ ] The live demo was rehearsed at least 3 times end to end, under 3 minutes.
 - [ ] A backup screen recording of a full successful run exists.
 - [ ] The submission is sent with the repo link (public, with README), the video, and the prize categories: Best Overall, HyperFrames, Gemini.
@@ -29,5 +29,5 @@ New pipeline features, refactors.
 
 ## Clarifications (resolved)
 - ✅ Dogfooding: the PR #1 trailer is the centerpiece of the video.
-- [NEEDS CLARIFICATION] The official max video length and the upload destination (YouTube/Devpost/MLH). Check the rules at the start of the event.
-- [NEEDS CLARIFICATION] Voice-over (your own voice recorded over the video, or none). Captions are mandatory either way.
+- ✅ Assume max 2 minutes, uploaded to YouTube (unlisted). Update if the official rules differ.
+- ✅ No voice-over: captions only (decided 2026-11-13).

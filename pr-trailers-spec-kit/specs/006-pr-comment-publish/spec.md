@@ -29,4 +29,4 @@ GitHub App, checks/status API, posting to Slack.
 ## Clarifications (resolved)
 - ✅ Release assets for hosting: the API/`gh` can't upload attachments the way the GitHub web UI does, and release assets need no extra service.
 - ✅ The repo must be **public**, so the GIF renders inline through GitHub's image proxy.
-- [NEEDS CLARIFICATION] Also upload the MP4 by drag-and-drop in the GitHub UI for the submission video shot (an inline player looks nicer). Manual, optional.
+- ✅ One-time manual step for the submission video only: drag PR #1's `trailer.mp4` into a comment in the GitHub web UI so it shows an inline video player. The automated pipeline still posts GIF + MP4 link on every PR (decided 2026-11-13). Listed in 007 tasks.
