@@ -260,3 +260,70 @@ a {
     gap: 18px;
   }
 }
+
+/* Pricing redesign: billing toggle, featured Pro plan, bolder CTA. */
+:root {
+  --cta: #ff5a36;
+  --cta-2: #ff2d87;
+}
+
+.billing-toggle {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 28px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.billing-toggle button {
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.billing-toggle button[aria-pressed="true"] {
+  background: var(--text);
+  color: #fff;
+}
+
+.billing-toggle .save {
+  color: var(--cta);
+}
+
+.plans {
+  grid-template-columns: 1fr 1.15fr 1fr;
+}
+
+.plan--pro {
+  min-width: 400px;
+  border: 2px solid var(--cta);
+  box-shadow: 0 18px 40px rgba(255, 90, 54, 0.18);
+}
+
+.plan--pro .btn {
+  border: 0;
+  background: linear-gradient(135deg, var(--cta), var(--cta-2));
+}
+
+.badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--cta), var(--cta-2));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
