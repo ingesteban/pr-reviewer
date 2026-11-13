@@ -1,6 +1,6 @@
 # Spec · 005 — HyperFrames trailer render
 
-**Estado:** Borrador · **Origin:** hackathon plan · **Priority:** High · **Depends:** 004
+**Estado:** Aprobada · **Origin:** hackathon plan · **Priority:** High · **Depends:** 004
 **Budget:** 60 min (3:00–4:00)
 
 ## Why

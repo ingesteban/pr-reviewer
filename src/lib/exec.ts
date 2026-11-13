@@ -9,6 +9,8 @@ export interface RunOptions {
   env?: NodeJS.ProcessEnv;
   /** Log the command line (default true). */
   echo?: boolean;
+  /** Called for every complete line of stdout/stderr (e.g. to stream render progress). */
+  onLine?: (line: string) => void;
 }
 
 export interface RunResult {
@@ -32,7 +34,7 @@ export class ExecError extends Error {
 
 /** Run a command to completion. Throws ExecError on a non-zero exit or timeout. */
 export function run(cmd: string, args: string[], opts: RunOptions = {}): Promise<RunResult> {
-  const { cwd, timeoutMs = 120_000, env, echo = true } = opts;
+  const { cwd, timeoutMs = 120_000, env, echo = true, onLine } = opts;
   const line = [cmd, ...args].join(" ");
   if (echo) log.command(cmd, args);
 
@@ -40,8 +42,21 @@ export function run(cmd: string, args: string[], opts: RunOptions = {}): Promise
     const child = spawn(cmd, args, { cwd, env: { ...process.env, ...env }, stdio: ["ignore", "pipe", "pipe"] });
     let stdout = "";
     let stderr = "";
-    child.stdout.on("data", (chunk: Buffer) => (stdout += chunk.toString()));
-    child.stderr.on("data", (chunk: Buffer) => (stderr += chunk.toString()));
+    let partial = "";
+    const feed = (text: string) => {
+      if (!onLine) return;
+      const lines = (partial + text).split(/\r?\n|\r/);
+      partial = lines.pop() ?? "";
+      for (const line of lines) onLine(line);
+    };
+    child.stdout.on("data", (chunk: Buffer) => {
+      stdout += chunk.toString();
+      feed(chunk.toString());
+    });
+    child.stderr.on("data", (chunk: Buffer) => {
+      stderr += chunk.toString();
+      feed(chunk.toString());
+    });
 
     const timer = setTimeout(() => {
       child.kill("SIGKILL");
