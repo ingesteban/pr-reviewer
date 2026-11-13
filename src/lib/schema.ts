@@ -111,3 +111,12 @@ export function clampScript(script: Script): Script {
     risks: script.risks.map((r) => ({ ...r, description: clampWords(r.description, 25) })),
   };
 }
+
+// .trailer/<pr>/published.json (feature 006)
+export const PublishedSchema = z.object({
+  commentUrl: z.string().url(),
+  action: z.enum(["created", "updated"]),
+  assets: z.object({ mp4: z.string().url(), gif: z.string().url(), poster: z.string().url() }),
+  publishedAt: z.string(),
+});
+export type Published = z.infer<typeof PublishedSchema>;

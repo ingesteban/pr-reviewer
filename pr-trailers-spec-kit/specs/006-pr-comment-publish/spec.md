@@ -1,6 +1,6 @@
 # Spec · 006 — Publish the trailer to the PR
 
-**Estado:** Borrador · **Origin:** hackathon plan · **Priority:** High · **Depends:** 005
+**Estado:** Aprobada · **Origin:** hackathon plan · **Priority:** High · **Depends:** 005
 **Budget:** 30 min (4:00–4:30)
 
 ## Why
