@@ -33,7 +33,7 @@ if gh pr view "$PR" --json number >/dev/null 2>&1; then
     && pass "routes include /pricing.html" || warn "routes don't include /pricing.html (expected only for the pricing PR)"
   trailer "$PR" --stage context | grep -q "(cached)" && pass "second run is cached" || fail "second run not cached"
   trailer "$PR" --stage context --force | grep -q "✔ context" && pass "--force re-runs" || fail "--force did not re-run"
-  { trailer "$PR" || true; } | grep -q "not implemented" && pass "later stages are stubs (pipeline stops at capture)" || warn "capture no longer a stub (feature 003 implemented?)"
+  { trailer "$PR" || true; } | grep -q "not implemented" && pass "pipeline stops at the first stage not built yet" || warn "every stage is implemented (no stub left)"
 else
   warn "PR #$PR not found via gh — skipping live checks (run .demo-patches/setup-demo-prs.sh first)"
 fi
