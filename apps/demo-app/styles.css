@@ -11,7 +11,7 @@
   --text: #14172b;
   --muted: #5b6078;
   --border: #e3e6f0;
-  --accent: #4f5bd5;
+  --accent: #0ea5a4;
   --accent-ink: #ffffff;
   --radius: 16px;
   --shadow: 0 10px 30px rgba(20, 23, 43, 0.08);
@@ -101,6 +101,10 @@ a {
 
 .hero h1 {
   margin: 0 auto 20px;
+  background: linear-gradient(135deg, #0ea5a4, #4f5bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   max-width: 820px;
   font-size: clamp(40px, 6vw, 64px);
   line-height: 1.1;
