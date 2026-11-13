@@ -1,0 +1,18 @@
+{
+  "app": {
+    "dir": "apps/demo-app",
+    "build": "npm run build",
+    "preview": "npm run preview -- --port {port}",
+    "basePort": 4173,
+    "headPort": 4174
+  },
+  "routes": [
+    { "path": "/", "sources": ["apps/demo-app/index.html"] },
+    { "path": "/pricing.html", "sources": ["apps/demo-app/pricing.html", "apps/demo-app/src/pricing.ts"] }
+  ],
+  "globalSources": ["apps/demo-app/styles.css"],
+  "viewports": [
+    { "name": "desktop", "width": 1280, "height": 800 },
+    { "name": "mobile", "width": 390, "height": 844 }
+  ]
+}

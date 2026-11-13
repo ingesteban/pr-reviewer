@@ -1,0 +1,25 @@
+{
+  "name": "pr-trailers",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Every PR gets a 30-second video trailer of what changed.",
+  "scripts": {
+    "trailer": "node src/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/picomatch": "^3.0.1",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=22.18"
+  }
+}
